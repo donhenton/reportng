@@ -80,7 +80,7 @@
                                 </property>
                             </properties>
                             <systemPropertyVariables>
-                                <stuff>stuff</stuff>
+                                <org.uncommons.reportng.title>Sample Testing Report</org.uncommons.reportng.title>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>${project.build.directory}/test-classes/sample-testng.xml</suiteXmlFile>

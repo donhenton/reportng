@@ -3,17 +3,25 @@
 
 Using the maven pom file here, issue this command:
 
-```mvn clean install -Pbuild```
+```mvn clean install```
+
+The jar file will be in the target directory.
+
 
 To use the reporting plug-in, set the "listeners" attribute of the "testng"
 element in your Ant build file.  This attribute takes a comma-separated list of
 reporter class names.  The class names for the ReportNG reporters are:
 
-  ```org.uncommons.reportng.HTMLReporter```
-  ```org.uncommons.reportng.JUnitXMLReporter```
+```
+   org.uncommons.reportng.HTMLReporter 
+   org.uncommons.reportng.JUnitXMLReporter 
+```
 
 You may also want to disable the default TestNG reporters by setting the
 "useDefaultListeners" attribute to "false".
+
+
+### Using Ant
 
 Your Ant task will probably look something like this:
 
@@ -34,12 +42,18 @@ line or an IDE plug-in), please refer to the TestNG documentation
 <http://testng.org/doc/documentation-main.html#running-testng> to find out how
 to register custom listeners/reporters.
 
+### Using Maven
+
+The maven pom file gives examples of using the plugin specifically the 
+***sample*** profile. 
+
+```mvn clean install -Psample```
 
 ### Supported System Properties
 ---
 
 The following optional system properties can be set (via nested "<sysproperty>"
-elements within the "<testng>" element) in order to customise the report
+elements within the "<testng>" element for ant) in order to customise the report
 output:
 
 *  **org.uncommons.reportng.coverage-report**

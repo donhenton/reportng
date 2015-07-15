@@ -19,7 +19,7 @@
             <goals>
                
                 <goal>clean</goal>
-                <goal>install</goal>
+                <goal>test</goal>
             </goals>
             <properties>
                 <skipTests>false</skipTests>
