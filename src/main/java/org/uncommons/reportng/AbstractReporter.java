@@ -97,23 +97,22 @@ public abstract class AbstractReporter implements IReporter
     /**
      * Generate the specified output file by merging the specified
      * Velocity template with the supplied context.
+     * @param file
+     * @param templateName
+     * @param context
+     * @throws java.lang.Exception
      */
     protected void generateFile(File file,
                                 String templateName,
                                 VelocityContext context) throws Exception
     {
-        Writer writer = new BufferedWriter(new FileWriter(file));
         try
-        {
+        (Writer writer = new BufferedWriter(new FileWriter(file))) {
             Velocity.mergeTemplate(classpathPrefix + templateName,
                                    ENCODING,
                                    context,
                                    writer);
             writer.flush();
-        }
-        finally
-        {
-            writer.close();
         }
     }
 
@@ -146,14 +145,9 @@ public abstract class AbstractReporter implements IReporter
                             File sourceFile,
                             String targetFileName) throws IOException
     {
-        InputStream fileStream = new FileInputStream(sourceFile);
         try
-        {
+        (InputStream fileStream = new FileInputStream(sourceFile)) {
             copyStream(outputDirectory, fileStream, targetFileName);
-        }
-        finally
-        {
-            fileStream.close();
         }
     }
 
@@ -222,6 +216,7 @@ public abstract class AbstractReporter implements IReporter
 
     private static final class EmptyDirectoryFilter implements FileFilter
     {
+        @Override
         public boolean accept(File file)
         {
             return file.isDirectory() && file.listFiles().length == 0;
