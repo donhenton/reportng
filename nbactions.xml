@@ -28,4 +28,21 @@
                 <activatedProfile>sample</activatedProfile>
             </activatedProfiles>
         </action>
+        
+         <action>
+            <actionName>CUSTOM-sample-coverage</actionName>
+            <displayName>sample-coverage</displayName>
+            <goals>
+               
+                <goal>clean</goal>
+                <goal>verify</goal>
+            </goals>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>sample-coverage</activatedProfile>
+            </activatedProfiles>
+        </action>
+        
     </actions>
