@@ -9,8 +9,8 @@ To use the reporting plug-in, set the "listeners" attribute of the "testng"
 element in your Ant build file.  This attribute takes a comma-separated list of
 reporter class names.  The class names for the ReportNG reporters are:
 
-  ```org.uncommons.reportng.HTMLReporter
-  org.uncommons.reportng.JUnitXMLReporter```
+  ```org.uncommons.reportng.HTMLReporter```
+  ```org.uncommons.reportng.JUnitXMLReporter```
 
 You may also want to disable the default TestNG reporters by setting the
 "useDefaultListeners" attribute to "false".
