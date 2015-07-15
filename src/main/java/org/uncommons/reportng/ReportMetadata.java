@@ -114,7 +114,7 @@ public final class ReportMetadata
          String linkString = "";
          String className = getExternalLinkClassname();
          LOG.debug("class name is "+className);
-         System.out.println("class name is "+className);
+         //System.out.println("class name is "+className);
          if (className != null)
          {
              try {
