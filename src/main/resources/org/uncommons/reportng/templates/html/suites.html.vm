@@ -24,6 +24,9 @@
     #if ($meta.coverageLink)
     &#183; <a href="$meta.coverageLink" target="_top">$messages.getString("coverageReport")</a>
     #end
+    #if ($meta.externalLinkClassname)
+      &#183; $meta.renderExternalLink()</a>
+    #end
   </p>
 </div>
 <table id="suites">

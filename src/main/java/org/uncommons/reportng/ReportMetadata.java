@@ -16,12 +16,15 @@
 package org.uncommons.reportng;
 
 import java.io.File;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import org.slf4j.LoggerFactory;
 
 /**
  * Provides access to static information useful when generating a report.
@@ -33,6 +36,7 @@ public final class ReportMetadata
     static final String TITLE_KEY = PROPERTY_KEY_PREFIX + "title";
     static final String DEFAULT_TITLE = "Test Results Report";
     static final String COVERAGE_KEY = PROPERTY_KEY_PREFIX + "coverage-report";
+    static final String EXTERNAL_LINK_CLASSNAME_KEY = PROPERTY_KEY_PREFIX + "external-link-classname";
     static final String EXCEPTIONS_KEY = PROPERTY_KEY_PREFIX + "show-expected-exceptions";
     static final String OUTPUT_KEY = PROPERTY_KEY_PREFIX + "escape-output";
     static final String XML_DIALECT_KEY = PROPERTY_KEY_PREFIX + "xml-dialect";
@@ -42,7 +46,8 @@ public final class ReportMetadata
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("EEEE dd MMMM yyyy");
     private static final DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm z");
-    
+    private org.slf4j.Logger LOG
+            = LoggerFactory.getLogger(ReportMetadata.class);
 
     /**
      * The date/time at which this report is being generated.
@@ -82,9 +87,60 @@ public final class ReportMetadata
      */
     public String getCoverageLink()
     {
+       
         return System.getProperty(COVERAGE_KEY);
+        
     }
 
+   /**
+    * The fully qualified classname 
+    * implementing org.uncommons.reportng.IExternalLink interface.
+    * This is placed in the external link slot near the coverage link
+    * 
+    * @return the classname as string
+    */
+     public String getExternalLinkClassname()
+    {
+        return System.getProperty(EXTERNAL_LINK_CLASSNAME_KEY,null);
+    }
+     
+     public String renderExternalLink()  
+     {
+         String linkString = "";
+         String className = getExternalLinkClassname();
+         LOG.debug("class name is "+className);
+         System.out.println("class name is "+className);
+         if (className != null)
+         {
+             try {
+                 Class myClass = Class.forName(className);
+                 Constructor constructor = myClass.getConstructor();
+                 IExternalLink linkItem = 
+                         (IExternalLink) constructor.newInstance();
+                 linkString = linkItem.renderLinkText();
+             } catch (ClassNotFoundException ex) {
+                 LOG.error("Could not find class "+     className);
+                 
+             } catch (NoSuchMethodException ex) {
+                 LOG.error("No constructorr for  class "+     className);
+                 
+             } catch (SecurityException ex) {
+                  LOG.error("Security problem constructing class "
+                          +     className);
+             } catch (InstantiationException | 
+                     IllegalAccessException | 
+                     IllegalArgumentException | 
+                     InvocationTargetException ex) {
+                 
+                  LOG.error("Problem calling  constructor for class "+     
+                          className+" "+ex.getMessage());
+             }
+         }
+         
+         
+         return linkString;
+         
+     }
 
     /**
      * If a custom CSS file has been specified, returns the path.  Otherwise

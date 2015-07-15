@@ -138,6 +138,8 @@
                             <systemPropertyVariables>
                                 <org.uncommons.reportng.title>Sample Testing Report</org.uncommons.reportng.title>
                                 <org.uncommons.reportng.coverage-report>../../site/jacoco/index.html</org.uncommons.reportng.coverage-report>
+                                <org.uncommons.reportng.external-link-classname>org.uncommons.reportng.external.links.ExternalLinkTester</org.uncommons.reportng.external-link-classname>
+                                 
                             </systemPropertyVariables>
                             <includes>
                                 <include>/org/uncommons/reportng/*.java</include>
@@ -216,6 +218,11 @@
             <artifactId>guice</artifactId>
             <version>3.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.2</version>
         </dependency>
     </dependencies>
 </project>
