@@ -104,6 +104,11 @@ public final class ReportMetadata
         return System.getProperty(EXTERNAL_LINK_CLASSNAME_KEY,null);
     }
      
+     /**
+      * render an external link by classname. Only called if 
+      * an external link classname is specified
+      * @return 
+      */
      public String renderExternalLink()  
      {
          String linkString = "";
