@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+         
+        <action>
+            <actionName>CUSTOM-build install</actionName>
+            <displayName>build install</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
+        </action>
+         
+        <action>
+            <actionName>CUSTOM-sample</actionName>
+            <displayName>sample</displayName>
+            <goals>
+               
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>sample</activatedProfile>
+            </activatedProfiles>
+        </action>
+    </actions>

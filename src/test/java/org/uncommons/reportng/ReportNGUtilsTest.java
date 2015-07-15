@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 /**
  * Unit test for {@link ReportNGUtils}.
  * Originally contributed by "bdamm"
- * (see https://reportng.dev.java.net/issues/show_bug.cgi?id=17).
+ * (see https://reportng.uncommons.org/issues/show_bug.cgi?id=17).
  */
 public class ReportNGUtilsTest
 {
