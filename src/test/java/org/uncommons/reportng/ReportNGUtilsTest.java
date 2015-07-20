@@ -16,13 +16,14 @@
 package org.uncommons.reportng;
 
 import org.testng.annotations.Test;
+import org.uncommons.reportng.sample.BaseTest;
 
 /**
  * Unit test for {@link ReportNGUtils}.
  * Originally contributed by "bdamm"
  * (see https://reportng.uncommons.org/issues/show_bug.cgi?id=17).
  */
-public class ReportNGUtilsTest
+public class ReportNGUtilsTest extends BaseTest
 {
 	private final ReportNGUtils utils = new ReportNGUtils();
 

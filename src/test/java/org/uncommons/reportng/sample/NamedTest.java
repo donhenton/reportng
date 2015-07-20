@@ -23,12 +23,9 @@ import org.testng.annotations.Test;
  * Test for named tests.
  * @author Daniel Dyer
  */
-public class NamedTest implements ITest
+public class NamedTest extends BaseTest
 {
-    public String getTestName()
-    {
-        return "NamedTest";
-    }
+     
 
 
     @Test

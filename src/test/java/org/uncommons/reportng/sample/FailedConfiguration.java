@@ -23,7 +23,7 @@ import org.testng.annotations.Test;
  * configuration failures.
  * @author Daniel Dyer
  */
-public class FailedConfiguration
+public class FailedConfiguration extends BaseTest
 {
     /**
      * A configuration method that will fail causing any test cases

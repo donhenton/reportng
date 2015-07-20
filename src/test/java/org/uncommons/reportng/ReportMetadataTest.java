@@ -17,12 +17,13 @@ package org.uncommons.reportng;
 
 import java.util.Locale;
 import org.testng.annotations.Test;
+import org.uncommons.reportng.sample.BaseTest;
 
 /**
  * Unit test for the {@link ReportMetadata} class.
  * @author Daniel Dyer
  */
-public class ReportMetadataTest
+public class ReportMetadataTest extends BaseTest
 {
     @Test
     public void testDefaultLocale()

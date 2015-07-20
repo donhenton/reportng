@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * report to verfiy that ReportNG can deal with this scenario correctly.
  * @author Daniel Dyer
  */
-public class DataProviderTest
+public class DataProviderTest extends BaseTest
 {
     @DataProvider(name = "arrayProvider")
     public Object[][] dataArray()

@@ -8,12 +8,12 @@
   <td class="method">
     #set ($testInstanceName = "")
     #if ($testResult.testName)
-      #set ($testInstanceName = " ($testResult.testName)")
+      #set ($testInstanceName = " ($testResult.method.methodName)")
     #end
     #if ($testResult.method.description && $testResult.method.description.length() > 0)
-      <span class="description" title="$testResult.method.description">$testResult.name$testInstanceName</span>
+      <span class="description" title="$testResult.method.description">$testInstanceName</span>
     #else
-      $testResult.name$testInstanceName
+      $testInstanceName
     #end
   </td>
   <td class="duration">

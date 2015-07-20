@@ -23,7 +23,7 @@ import org.testng.Reporter;
  * @author Daniel Dyer
  */
 @Test(groups = "should-fail")
-public class FailedTests
+public class FailedTests extends BaseTest
 {
     @Test
     public void assertionFailure()

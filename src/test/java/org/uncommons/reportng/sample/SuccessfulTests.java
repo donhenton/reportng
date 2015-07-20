@@ -26,7 +26,7 @@ import org.testng.annotations.Test;
  * @author Daniel Dyer
  */
 @Test(groups = "should-pass")
-public class SuccessfulTests
+public class SuccessfulTests extends BaseTest
 {
     @Test
     public void test()
