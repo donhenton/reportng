@@ -47,9 +47,9 @@
     <div class="testOutput">
       #foreach( $line in $output )
         #if ($meta.shouldEscapeOutput())
-          $utils.escapeHTMLString($line)<br />
+          $utils.escapeHTMLString($line) <br />
         #else
-          $line
+          $utils.removeTestNGbrackets($line)
         #end
       #end
     </div>

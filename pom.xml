@@ -189,6 +189,7 @@
                             </properties>
                             <systemPropertyVariables>
                                 <org.uncommons.reportng.title>Sample Testing Report</org.uncommons.reportng.title>
+                                <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>${project.build.directory}/test-classes/sample-testng.xml</suiteXmlFile>

@@ -6,11 +6,13 @@
 package org.uncommons.reportng.sample;
 
 import org.testng.ITest;
+import org.testng.annotations.Listeners;
 
 /**
  *
  * @author dhenton
  */
+@Listeners({TestListener.class})
 public class BaseTest implements ITest {
 
     @Override
