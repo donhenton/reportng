@@ -112,3 +112,11 @@ output:
       dialect of the XML format. Other tools, such as Ant's junitreport task,
       do not have a notion of skipped tests.  For these tools the dialect can
       be set to "junit" and skipped tests will be marked as failures.
+
+*  **org.uncommons.reportng.external-link-classname**
+     Used to point the report to  a class that implements IExternalLink interface
+     This allows for attaching arbitrary links to the header of the report
+
+
+
+
